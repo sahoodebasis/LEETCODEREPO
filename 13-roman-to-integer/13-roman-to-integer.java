@@ -27,6 +27,7 @@ class Solution {
                 i++;
             }
             else{
+                
                 // str=char1+"";
                 str=Character.toString(char1);
                 sum+=map1.get(str);
