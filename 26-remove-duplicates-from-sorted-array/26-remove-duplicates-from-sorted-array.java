@@ -6,7 +6,8 @@ class Solution {
                 j++;
             }
             else{
-                nums[++i]=nums[j];
+                i++;
+                nums[i]=nums[j];
                 j++;
             }
         }
