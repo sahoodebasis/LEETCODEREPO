@@ -6,10 +6,6 @@ class Solution {
             return list;
         }
         
-        // for(List list1:list){
-        //     List<Integer> temp2=innerList(list1);
-        //     list.add(temp2);
-        // }
         for(int i=1;i<=numRows-1;i++){
             list.add(innerList(list.get(i-1)));
         }
