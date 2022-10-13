@@ -13,12 +13,14 @@ class Solution {
         reverse(nums, i+1);
     }
     
+    
     public void swap(int[] nums,int i,int j){
         int temp=0;
         temp=nums[i];
         nums[i]=nums[j];
         nums[j]=temp;
     }
+    
     
     public void reverse(int [] nums,int i){
         int j=nums.length-1;
