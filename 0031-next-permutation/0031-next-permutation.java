@@ -1,7 +1,6 @@
 class Solution {
     public void nextPermutation(int[] nums) {
-        
-        int temp=0,i=nums.length-2, j=nums.length-1;
+        int i=nums.length-2, j=nums.length-1;
         while(i>=0 && nums[i]>=nums[i+1]){
             i--;
         }
@@ -11,7 +10,6 @@ class Solution {
             }
             swap(nums, i ,j);
         }
-        
         reverse(nums, i+1);
     }
     
