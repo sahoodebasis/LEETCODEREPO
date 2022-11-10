@@ -13,6 +13,7 @@ class Solution {
                 count--;
             }
         }
+        
         return majorElement;
     }
 }
