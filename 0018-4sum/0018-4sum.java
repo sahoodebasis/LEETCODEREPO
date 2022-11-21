@@ -3,7 +3,6 @@ class Solution {
          List<List<Integer>> list=new ArrayList<>();
         Set<List<Integer>> set=new HashSet<>();
         if(nums.length<=3){
-            // list.add(List.of(0));
             return list;
         }
         Arrays.sort(nums);
