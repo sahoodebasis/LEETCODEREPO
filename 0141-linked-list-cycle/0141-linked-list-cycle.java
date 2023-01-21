@@ -15,15 +15,21 @@ public class Solution {
             return false;
         }
         ListNode slow=head;
-        ListNode fast=head.next.next;
+        // ListNode fast=head.next.next;
+        ListNode fast=head;
         
-        while(slow!=fast && slow !=null && fast!=null && fast.next!=null ){
+        // while(slow!=fast && slow !=null && fast!=null && fast.next!=null ){
+        while(fast!=null && fast.next!=null){    
             slow=slow.next;
             fast=fast.next.next;
+            if(slow==fast){
+                return true;
+            }
         }
-        if(slow !=fast){
-            return false;
-        }
-        return true;
+        // if(slow !=fast){
+        //     return false;
+        // }
+        // return true;
+        return false;
     }
 }
