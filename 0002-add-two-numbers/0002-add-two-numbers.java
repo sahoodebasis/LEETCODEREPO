@@ -10,31 +10,78 @@
  */
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-      
-        ListNode temp=new ListNode(0);
-        ListNode ans=temp;
-        int sum=0,carry=0;
-        while(l1!=null || l2 !=null || carry ==1){
-            sum=0;
-            if(l1 !=null){
-                sum+=l1.val;
-                l1=l1.next;
+        
+        ListNode head1=l1;
+        ListNode head2=l2;
+        ListNode result = new ListNode(0);
+        ListNode finalResult=result;
+        int unit=0,carry=0,total=0;
+        while(head1!=null && head2 !=null){
+            total=head1.val+head2.val+carry;
+            if(total >=10){
+                unit=total -10;
+                carry=1;
             }
-            if(l2 !=null){
-                sum+=l2.val;
-                l2=l2.next;
+            else{
+                unit=total;
+                carry=0;
             }
-            sum+=carry;
-            carry=sum/10;
-            sum=sum%10;
-            ListNode newNode=new ListNode(sum);
-            temp.next=newNode;
-            temp=temp.next;
-            
-            
+            ListNode res = new ListNode(unit);
+            result.next=res;
+            result=res;
+            head1=head1.next;
+            head2=head2.next;
         }
-        return ans.next;
+        
+        if(head1 ==null){
+            while(head2 !=null){
+                total=head2.val+carry;
+            if(total >=10){
+                unit=total -10;
+                carry=1;
+            }
+            else{
+                unit=total;
+                carry=0;
+            }
+                ListNode res = new ListNode(unit);
+                result.next=res;
+                result=res;
+                head2=head2.next;
+            }
+        }
+        
+        if(head2 ==null){
+            while(head1 !=null){
+                total=head1.val+carry;
+            if(total >=10){
+                unit=total -10;
+                carry=1;
+            }
+            else{
+                unit=total;
+                carry=0;
+            }
+                ListNode res = new ListNode(unit);
+                result.next=res;
+                result=res;
+                head1=head1.next;
+            }
+        }
+        
+        if(carry ==1){
+            ListNode res = new ListNode(carry);
+            result.next=res;
+             result=res;
+        }
+        result.next=null;
+        
+        return finalResult.next;
+        
     }
-    
-    
 }
+
+
+
+
+
