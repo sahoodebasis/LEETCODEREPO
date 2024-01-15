@@ -1,27 +1,23 @@
 class Solution {
     public List<List<Integer>> generate(int numRows) {
-        List<List<Integer>> list=new ArrayList<>();
-        list.add(Arrays.asList(1));
-        if(numRows==1){
-            return list;
+
+        List<List<Integer>> solList= new ArrayList<>();
+        
+        for(int i=1;i<=numRows;i++){
+            List<Integer> tempList= new ArrayList<>();
+            for(int j=1;j<=i;j++){
+                
+                if(j==1 || j==i){
+                    tempList.add(1);
+                }
+                else{
+                    tempList.add(solList.get(i-2).get(j-1)+solList.get(i-2).get(j-2));
+                }
+            }
+            solList.add(tempList);
         }
         
-        for(int i=1;i<=numRows-1;i++){
-            list.add(innerList(list.get(i-1)));
-        }
-        return list;
-    }
-    
-    public List<Integer> innerList(List<Integer> prevList ){
-        List<Integer> temp=new ArrayList<>();
-        for(int i=0;i<prevList.size()+1;i++){
-            if(i==0 || i==prevList.size()){
-                temp.add(1);
-            }
-            else{
-                temp.add(prevList.get(i)+prevList.get(i-1));
-            }
-        }
-        return temp;
+        return solList;
+        
     }
 }
