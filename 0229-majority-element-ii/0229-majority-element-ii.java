@@ -1,7 +1,7 @@
 class Solution {
     public List<Integer> majorityElement(int[] nums) {
         
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new ArrayList<>(2);
         int count1=0,count2=0,majorElement1=nums[0],majorElement2=nums[0], n=nums.length;
         
         for(int i=0;i<n;i++){
