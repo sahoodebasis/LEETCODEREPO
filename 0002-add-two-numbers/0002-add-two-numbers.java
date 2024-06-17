@@ -11,77 +11,64 @@
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         
-        ListNode head1=l1;
-        ListNode head2=l2;
-        ListNode result = new ListNode(0);
-        ListNode finalResult=result;
-        int unit=0,carry=0,total=0;
-        while(head1!=null && head2 !=null){
-            total=head1.val+head2.val+carry;
-            if(total >=10){
-                unit=total -10;
-                carry=1;
+        ListNode result=new ListNode();
+        ListNode trackResult=result;
+        int total=0,carry=0;
+        while(l1!=null && l2!=null){
+            total=l1.val+l2.val+carry;
+            if(total>=10){
+                carry=1; 
             }
             else{
-                unit=total;
-                carry=0;
-            }
-            ListNode res = new ListNode(unit);
-            result.next=res;
-            result=res;
-            head1=head1.next;
-            head2=head2.next;
+                    carry=0;
+                }
+            ListNode temp=new ListNode(total%10);
+            result.next=temp;
+            result=temp;
+            l1=l1.next;
+            l2=l2.next;
         }
         
-        if(head1 ==null){
-            while(head2 !=null){
-                total=head2.val+carry;
-            if(total >=10){
-                unit=total -10;
-                carry=1;
-            }
-            else{
-                unit=total;
-                carry=0;
-            }
-                ListNode res = new ListNode(unit);
-                result.next=res;
-                result=res;
-                head2=head2.next;
-            }
-        }
-        
-        if(head2 ==null){
-            while(head1 !=null){
-                total=head1.val+carry;
-            if(total >=10){
-                unit=total -10;
-                carry=1;
-            }
-            else{
-                unit=total;
-                carry=0;
-            }
-                ListNode res = new ListNode(unit);
-                result.next=res;
-                result=res;
-                head1=head1.next;
+        if(l1==null){
+            while(l2!=null){
+                 total=l2.val+carry;
+                 if(total>=10){
+                    carry=1; 
+               }
+                else{
+                    carry=0;
+                }
+                ListNode temp=new ListNode(total%10);
+                result.next=temp;
+                result=temp;
+                l2=l2.next;
+                
+                
             }
         }
         
-        if(carry ==1){
-            ListNode res = new ListNode(carry);
-            result.next=res;
-             result=res;
+        if(l2==null){
+            while(l1!=null){
+                 total=l1.val+carry;
+                 if(total>=10){
+                    carry=1; 
+               }
+                else{
+                    carry=0;
+                }
+                ListNode temp=new ListNode(total%10);
+                result.next=temp;
+                result=temp;
+                l1=l1.next;
+                
+                
+            }
         }
-        result.next=null;
+        if(carry==1){
+             ListNode temp=new ListNode(1);
+             result.next=temp;
+        }
         
-        return finalResult.next;
-        
+        return trackResult.next;
     }
 }
-
-
-
-
-
