@@ -10,9 +10,6 @@ class Solution {
            else if(map.containsKey(words[i].substring(0,words[i].length()-1))){
                 map.put(words[i],words[i].length());
             }
-            // else{
-            //     map.put(words[i],-1);
-            // }
 
         }
         
@@ -31,5 +28,3 @@ class Solution {
         
     }
 }
-
-// [a,ap,app,appl,apple,apply,banana]
