@@ -13,7 +13,7 @@ class Solution {
     public void findSubsets(int [] nums, List<Integer> subList, int index){
         ans.add(new ArrayList<>(subList));
         
-        if(nums.length==subList.size()){
+        if(index>=nums.length){//index>nums.length //nums.length==subList.size()
             return;
         }
         
